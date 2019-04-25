@@ -301,6 +301,10 @@ body {
     display: block;
     background-image: linear-gradient(to left top, rgba(84, 72, 58, 0.7), rgba(109, 93, 75, 0.7));
     opacity: 0; }
+  .gallery__link:visited,
+  .gallery :active,
+  .gallery :focus {
+    outline: none; }
 
 .footer {
   background-color: #101d2c;
