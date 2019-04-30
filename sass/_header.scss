@@ -4,8 +4,8 @@
     background-image: linear-gradient(rgba($color-secondary, .93), rgba($color-secondary, .93)), url(../img/hero.jpeg);
     background-size: center center; //lagre screens
     display: grid;
-    grid-template-rows: 1fr min-content 6rem 1fr;
-    grid-template-columns: max-content;
+    grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+    grid-template-columns: minmax(min-content, max-content);
     grid-row-gap: 1.5rem;
     padding: 8rem;
     padding-top: 4rem;
@@ -28,7 +28,7 @@
         color: $color-grey-light-1;
         grid-column-gap: 1.5rem;
         align-items: center;
-        // justify-self: center;
+        justify-self: center;
 
         &::before,
         &::after {
@@ -47,7 +47,8 @@
         justify-items: center;
 
         img {
-            height: 2.5rem;
+            max-height: 2.5rem;
+            max-width: 100%;
             filter: brightness(70%);
 
         }
