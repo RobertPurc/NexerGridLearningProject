@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="css/lightgallery.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
@@ -481,24 +481,32 @@
         });
     </script>
     <script>
-        $('.nav-btn').on('click', function () {
-            //kiedy kliknę w btn-menu
-            // var animate = $('.navigation__nav');
+        var clicks = 0;
+        $('.nav-btn').on('click',
+            function () {
+                if (clicks % 2 == 0) {
+                    $('.navigation__nav').addClass("show");
+                    $('.navigation__item--1').addClass('fade--in');
+                    $('.navigation__item--2').addClass('fade--in-2');
+                    $('.navigation__item--3').addClass('fade--in-3');
+                    $('.navigation__item--4').addClass('fade--in-4');
+                    $('.navigation__item--1').removeClass('fadeOutDown');
+                    $('.navigation__item--2').removeClass('fadeOutDown--2');
+                    $('.navigation__item--3').removeClass('fadeOutDown--3');
+                    $('.navigation__item--4').removeClass('fadeOutDown--4');
+                    // console.log("1klik");
+                } else {
+                    $('.navigation__nav').removeClass("show");
+                    $('.navigation__item--1').addClass('fadeOutDown');
+                    $('.navigation__item--2').addClass('fadeOutDown--2');
+                    $('.navigation__item--3').addClass('fadeOutDown--3');
+                    $('.navigation__item--4').addClass('fadeOutDown--4');
+                    // console.log("2klik");
+                } 
 
-            // TweenLite.to(animate, 1, {x: -1000})
-           $('.navigation__nav').toggleClass("show");
-           $('.navigation__item--1').toggleClass("fade--in");
-           $('.navigation__item--2').toggleClass("fade--in-2");
-           $('.navigation__item--3').toggleClass("fade--in-3");
-           $('.navigation__item--4').toggleClass("fade--in-4");
-          
-        //    var anim = $('.navigation__item');
-        //    TweenLite.from(anim, 1, {autoAlpha: 0});
-        });
-        // (function ($) {
-            // var h1 = $('h1');
-            // TweenLite.from(h2,1{})
-        // });
+                ++clicks;
+
+            });
     </script>
 
 </body>
