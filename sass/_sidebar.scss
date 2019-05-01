@@ -4,24 +4,16 @@
         background-color: $color-primary;
         grid-column: sidebar-start / sidebar-end;
         grid-row: 1 / -1;
-
-        @media screen and (max-width: $bp-large) {
-            grid-column: 1 /-1;
-            grid-row: 1/2;
-            justify-content: flex-start;
-            // align-items: center;
-            // position: fixed;
-        }
-
-        // text-align: center;
-        // display: grid;
         display: flex;
         justify-content: center;
         position: relative;
         z-index: 10;
+
+        @media screen and (max-width: $bp-large) {
+            justify-content: flex-end;
+        }
     }
 
-    // z-index: 11;
 }
 
 .nav-btn {
@@ -37,43 +29,6 @@
     cursor: pointer;
     z-index: 11;
 
-    @media screen and (max-width: $bp-large) {
-        margin-top: 8rem;
-        margin-left: 6rem;
-        // left: 1rem;
-        height: 5rem;
-        width: 5rem;
-        background-color: transparent;
-    }
-
-    &:hover &__item {
-
-        width: 5rem;
-
-        @media screen and (max-width: $bp-large) {
-            box-shadow: .1rem .1rem .75rem #000;
-        }
-
-    }
-
-    &:hover &__item::after {
-        width: 5rem;
-
-        @media screen and (max-width: $bp-large) {
-            box-shadow: .1rem .1rem .75rem #000;
-        }
-
-    }
-
-    &:hover &__item::before {
-        width: 5rem;
-
-        @media screen and (max-width: $bp-large) {
-            box-shadow: .1rem .1rem .75rem #000;
-        }
-
-    }
-
     &__item {
         width: 5rem;
         height: 3px;
@@ -88,12 +43,16 @@
             height: 3px;
             width: 6rem;
             display: block;
-            transform: translateY(-50%);
             transition: all .2s ease-out;
+
+            @media screen and (max-width: $bp-large) {
+                width: 5rem;
+            }
         }
 
         &::before {
             transform: translateY(-1.5rem);
+
         }
 
         &::after {
@@ -101,63 +60,94 @@
         }
     }
 
+    &:hover &__item {
+        width: 6rem;
+    }
+
+    &:hover &__item::after {
+        width: 4rem;
+    }
+
+    &:hover &__item::before {
+        width: 4rem;
+    }
+
+    @media screen and (max-width: $bp-large) {
+        box-sizing: content-box;
+        margin-top: 2rem;
+        padding: 1.5rem;
+        height: 8rem;
+        width: 8rem;
+        display: flex;
+        justify-content: center;
+        background-color: $color-primary;
+    }
+
 }
 
 .navigation {
 
     &__nav {
-
-        // opacity: 0;
         visibility: hidden;
         position: fixed;
         left: 0;
         display: grid;
         grid-template-columns: 1fr;
         background-color: $color-primary;
-        // grid-template-rows: 1 /-1;
         height: 100vh;
         width: 30vw;
         z-index: 10;
         justify-items: center;
         align-items: center;
-        // filter: brightness(80%);
         transform: translateX(-100%);
-        transition: all 1s;
+        transition: all 1s .8s;
 
+        @media screen and (max-width: $bp-medium) {
+            width: 40vw;
+            
+        }
+        @media screen and (max-width: $bp-small) {
+            width: 60vw;
+            
+        }
     }
 
     &__list {
         list-style-type: none;
         display: grid;
-        // grid-template-columns:1;
         grid-template-rows: repeat(4, 1fr);
         grid-row-gap: 3rem;
     }
 
     &__item {
-        // list-style-type: none;
         text-align: center;
         opacity: 0;
         visibility: hidden;
-        // transform: translateY(20px);
-        // animation: anim 2s 1s;
-        //    transition: all 1s;
 
-        //    transition-delay: 1s;
+        &::after{
+            visibility: visible;
+            opacity: 1;
+            content: "";
+            display: block;
+            width: 0;
+            height: 2px;
+            background: $color-grey-light-1;
+            transition: width .3s;
+            opacity: .6;
+        }
+
+        &:hover::after{
+          width:100%;
+          transition: width .3s;
+        }
     }
 
     &__link {
-        // list-style-type: none;
-        // opacity: 0;
         border: none;
         font-size: 5rem;
         letter-spacing: .5rem;
         text-decoration: none;
         color: $color-grey-light-1;
-        // transform: translateY(30px);
-        // transition:all  1s;
-
-        // filter:none;
 
     }
 

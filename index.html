@@ -22,14 +22,17 @@
         </button>
         <nav class="navigation__nav">
             <ul class="navigation__list ">
-                <li class="navigation__item navigation__item--1 "><a class="navigation__link" href="#">Home</a></li>
-                <li class="navigation__item navigation__item--2 "><a class="navigation__link" href="#">Revievs</a></li>
-                <li class="navigation__item navigation__item--3 "><a class="navigation__link" href="#">Offer</a></li>
-                <li class="navigation__item navigation__item--4 "><a class="navigation__link" href="#">Gallery</a></li>
+                <li class="navigation__item navigation__item--1 "><a class="navigation__link" href="#home">Home</a></li>
+                <li class="navigation__item navigation__item--2 "><a class="navigation__link"
+                        href="#Revievs">Revievs</a></li>
+                <li class="navigation__item navigation__item--3 "><a class="navigation__link" href="#Offer">Offer</a>
+                </li>
+                <li class="navigation__item navigation__item--4 "><a class="navigation__link"
+                        href="#gallery--popup">Gallery</a></li>
             </ul>
         </nav>
     </div>
-    <header class="header">
+    <header class="header" id="home">
         <img src="img/logo.png" alt="Nexter logo" class="header__logo">
         <h2 class="heading-2">Your own home</h2>
         <h1 class="heading-1">The ultimate personal freedom</h1>
@@ -65,7 +68,7 @@
             </div>
         </div>
     </div>
-    <section class="features">
+    <section class="features" id="Revievs">
         <div class="feature">
             <svg class="feature__icon">
                 <use xlink:href="img/sprite.svg#icon-global"></use>
@@ -148,7 +151,7 @@
         <button class="btn">Find your own home</button>
     </div>
 
-    <section class="homes">
+    <section class="homes" id="Offer">
         <div class="home">
             <img src="img/house-1.jpeg" alt="house-1" class="home__img">
             <!-- <input type="button" class="home__btn--heart" > -->
@@ -494,19 +497,28 @@
                     $('.navigation__item--2').removeClass('fadeOutDown--2');
                     $('.navigation__item--3').removeClass('fadeOutDown--3');
                     $('.navigation__item--4').removeClass('fadeOutDown--4');
-                    // console.log("1klik");
+                    console.log("1klik");
                 } else {
+                    // $('.navigation__nav').removeClass("show");
                     $('.navigation__nav').removeClass("show");
                     $('.navigation__item--1').addClass('fadeOutDown');
                     $('.navigation__item--2').addClass('fadeOutDown--2');
                     $('.navigation__item--3').addClass('fadeOutDown--3');
                     $('.navigation__item--4').addClass('fadeOutDown--4');
-                    // console.log("2klik");
-                } 
+                    console.log("2klik");
+
+
+
+
+                }
+
 
                 ++clicks;
 
             });
+        $('.navigation__link').on('click', function () {
+            $('.navigation__nav').removeClass("show");
+        });
     </script>
 
 </body>
